@@ -1,0 +1,30 @@
+//fonction 
+
+FUNCTION sort (array : ARRAY_OF FLOAT ) : ARRAY_OF FLOAT
+VAR 
+    i,j : INTEGER:=0;
+    current : FLOAT ; 
+BEGIN
+    FOR i FROM 0 TO array.length-1 DO
+        current:=array[i] ;
+        FOR j FROM i-1 TO 0 STEP -1  DO
+            IF (j >=0 AND array[j] > current) THEN
+            //permutation
+                array[i]:=array[j];
+                array[i]:=current; 
+            END_IF
+        END_FOR
+    END_FOR   
+    RETURN array ;
+END
+//appel de la fonction dans l'algo principal
+ALGORITHM Sort-algo
+VAR
+    
+    array, array_stored:ARRAY_OF FLOAT[100] ; 
+BEGIN
+    WRITE ("saisir votre tableau");
+    READ(array);
+    array-stored:=sorting_insertion(array) ;
+
+END
